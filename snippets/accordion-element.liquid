@@ -1,0 +1,25 @@
+{% comment %}
+    Renders accordion element
+
+    Accepts:
+    - title: {String} Accordion title
+    - content: {String}  Accordion content
+    - expanded: {Boolean} The accordion is expanded by default
+
+    Usage:
+    {% render 'accordion-element',
+      title: 'Accordion title', 
+      content: 'Accordion content',
+      expanded: true 
+    %}
+{% endcomment %}
+
+<accordion-element class="accordion-element" aria-expanded="{{ expanded | default: false }}">
+    <h2 class="accordion-element__title">
+      {{ title }}
+      {% render 'icon-caret' %}
+    </h2>
+    <div class="accordion-element__content">
+      {{ content }}
+    </div>
+</accordion-element>
